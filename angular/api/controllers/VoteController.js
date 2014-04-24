@@ -1,5 +1,5 @@
 /**
- * PostController
+ * VoteController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -16,30 +16,15 @@
  */
 
 module.exports = {
+    
+  
 
-  firevotes: function(req, res) {
-    Vote.count()
-      .where({ post: req.param('id'), vote: 1 })
-      .exec(function(err, votes) {
-        if (err) return res.send(err, 500);
-        res.json(votes);
-      });
-  },
-
-  leafvotes: function(req, res) {
-    Vote.count()
-      .where({ post: req.param('id'), vote: -1 })
-      .exec(function(err, votes) {
-        if (err) return res.send(err, 500);
-        res.json(votes);
-      });
-  },
 
   /**
    * Overrides for the settings in `config/controllers.js`
-   * (specific to PostController)
+   * (specific to VoteController)
    */
   _config: {}
 
-
+  
 };

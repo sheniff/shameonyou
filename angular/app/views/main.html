@@ -35,23 +35,11 @@
 
   <h4>Last posts</h4>
 
-  <div class="" ng-repeat="post in posts">
-    <div class="text-right">A <strong>{{ post.lang }}</strong> disaster @ {{ post.updatedAt | date }}</div>
-    <i class="glyphicon glyphicon-remove-circle pull-right" ng-click="remove(post)"></i>
-    <pre>
-      {{ post.code }}
-    </pre>
-    <div>
-    </div>
-    <div ng-if="post.comment">
-      I've got to say...
-      <div>
-        {{ post.comment }}
-      </div>
-    </div>
+  <div class="col-md-12" ng-repeat="post in posts">
+    <div post="post"></div>
   </div>
 </div>
 
 <div class="footer">
-  <p>From Russia with <span class="glyphicon glyphicon-heart"></span></p>
+  <p>From Sheniff with <span class="glyphicon glyphicon-heart"></span></p>
 </div>

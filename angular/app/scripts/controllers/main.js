@@ -5,7 +5,10 @@ angular.module('soyApp')
 
     // Attributes
 
-    $scope.posts = Post.query();
+    $scope.posts = Post.query({},
+      function success() {
+        fetchVotes();
+      });
 
     $scope.newPost = new Post({ lang: 'javascript' });
 
@@ -24,8 +27,16 @@ angular.module('soyApp')
         function error (data) {
           console.error('SAVE ERROR: ', data);
         }
-      )
+      );
     };
+
+    function fetchVotes() {
+      angular.forEach($scope.posts, function(post) {
+        post.getFires().getLeaves();
+      });
+    };
+
+    // New post
 
     $scope.startNewPost = function StartNewPost() {
       $scope.creatingPost = true;
@@ -42,4 +53,5 @@ angular.module('soyApp')
         $scope.startNewPost();
       }
     };
+
   });

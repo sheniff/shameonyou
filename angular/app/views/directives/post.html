@@ -1,0 +1,16 @@
+<div class="text-right">A <strong>{{ post.lang }}</strong> disaster @ {{ post.updatedAt | date }}</div>
+<!-- <i class="glyphicon glyphicon-remove-circle pull-right" ng-click="remove(post)"></i> -->
+<pre>{{ post.code }}</pre>
+<div>
+</div>
+<div ng-if="post.comment">
+  I've got to say...
+  <div>
+    {{ post.comment }}
+  </div>
+</div>
+
+<div class="opinion pull-right">
+  <a class="btn" ng-class="{'btn-success': post.vote == -1}" ng-click="leaf(post)"><i class="glyphicon glyphicon-leaf"></i> Not that bad... ({{post.leafvotes}})</a>
+  <a class="btn" ng-class="{'btn-danger': post.vote == 1}" ng-click="fire(post)"><i class="glyphicon glyphicon-fire"></i> OMG! Burn it! ({{post.firevotes}})</a>
+</div>

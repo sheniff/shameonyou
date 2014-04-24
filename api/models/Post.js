@@ -19,7 +19,16 @@ module.exports = {
       required: true
     },
     lang: 'string',
-    comment: 'text'
+    comment: 'text',
+
+    firevotes: function() {
+      return Vote.count().where({ post: this.id, vote: 1 });
+    },
+
+    leafvotes: function() {
+      return Vote.count().where({ post: this.id, vote: -1 });
+    }
+
   }
 
 };
